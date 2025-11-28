@@ -1,0 +1,23 @@
+@import '@/styles/variables.scss';
+
+.row {
+  display: grid;
+  grid-template-columns: 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 0.2fr;
+  margin-bottom: 1rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 40%;
+}
+
+.price {
+  font-weight: 500;
+}
+
+.discount {
+  color: $color-green-500;
+  font-weight: 500;
+}

@@ -1,0 +1,6 @@
+@import '@/styles/variables.scss';
+.header {
+  border-bottom: 1px solid $color-bg-secondary;
+
+  padding: $spacing-lg;
+}
