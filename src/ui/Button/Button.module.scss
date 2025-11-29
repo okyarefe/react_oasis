@@ -1,0 +1,63 @@
+@import '@/styles/variables.scss';
+
+.button {
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Variations */
+
+.primary {
+  border: 1px solid $color-accent-50;
+  &:hover:not(:disabled) {
+    background-color: $color-primary-300;
+  }
+}
+
+.secondary {
+  background: $color-panel;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: #5a6268;
+    opacity: 0.6;
+  }
+}
+
+.danger {
+  border: 1px solid $color-danger;
+  color: $color-danger;
+
+  &:hover:not(:disabled) {
+    background: $color-danger;
+    color: $color-text-primary;
+  }
+}
+
+.sm {
+  padding: 5px 8px;
+  font-size: 0.85rem;
+}
+
+.md {
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+.lg {
+  padding: 10px 15px;
+  font-size: 1.1rem;
+}

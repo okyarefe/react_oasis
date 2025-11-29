@@ -1,0 +1,122 @@
+@import '@/styles/variables.scss';
+
+.form {
+  padding: 2.4rem 4rem;
+  background-color: $color-primary-100; // Assumes a white card background
+  border: 1px solid $color-primary-50; // Light grey border
+  border-radius: 7px;
+  font-size: 1.4rem;
+  overflow: hidden; // Keeps border radius clean
+}
+
+.formRow {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 24rem 1fr 1.2fr; // Label | Input | Error/Help Text
+  gap: 2.4rem;
+
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #f3f4f6;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  // If you have buttons at the bottom, remove grid to let them flow naturally
+  &:has(button) {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    padding-top: 2.4rem; // Add extra space before buttons
+  }
+}
+
+.label {
+  font-weight: 500;
+  color: #374151; // Dark grey
+}
+
+.input,
+.textarea,
+.fileInput {
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  font-family: inherit; // Ensure inputs don't use default browser font
+  color: inherit;
+  width: 100%; // Fill the middle grid column
+
+  &:focus {
+    outline: 2px solid $color-brand-600; // Use your brand color variable
+    outline-offset: -1px;
+  }
+}
+
+.textarea {
+  height: 8rem; // Give description some height
+  resize: vertical; // Allow user to drag down, but not sideways
+}
+
+.fileInput {
+  font-size: 1.4rem;
+  border-radius: 5px;
+
+  &::file-selector-button {
+    font: inherit;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    margin-right: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: $color-brand-600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $color-brand-700; // Darker shade on hover
+    }
+  }
+}
+
+.error {
+  font-size: 1.2rem;
+  color: #b91c1c; // Red for errors
+}
+
+// Button styles (Basic placeholders, replace with your global Button component if you have one)
+.button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  font-size: 1.4rem;
+  padding: 1.2rem 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &.secondary {
+    color: #374151;
+    background: #fff;
+    border: 1px solid #d1d5db;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+  }
+
+  &.primary {
+    color: #fff;
+    background-color: $color-brand-600; // Your brand blue/indigo
+
+    &:hover {
+      background-color: $color-brand-700;
+    }
+  }
+}

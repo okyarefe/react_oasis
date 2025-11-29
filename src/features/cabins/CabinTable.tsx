@@ -1,11 +1,11 @@
-import { useSuspenseQuery } from '@tanstack/react-query'
 import CabinRow from './CabinRow'
 import styles from './CabinTable.module.scss'
 import type { Cabin } from '@/types'
-import { cabinsQueryOptions } from '@/routes/cabins'
 
-function CabinTable() {
-  const { data: cabins } = useSuspenseQuery(cabinsQueryOptions)
+interface CabinTableProps {
+  cabins: Array<Cabin>
+}
+function CabinTable({ cabins }: CabinTableProps) {
   return (
     <div role="table">
       <header className={styles.header}>
@@ -17,7 +17,7 @@ function CabinTable() {
       </header>
 
       {cabins.map((cabin: Cabin) => (
-        <CabinRow cabin={cabin}></CabinRow>
+        <CabinRow cabin={cabin} key={cabin.id}></CabinRow>
       ))}
     </div>
   )

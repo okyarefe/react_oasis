@@ -1,7 +1,13 @@
 import styles from './Spinner.module.scss'
 
-function Spinner() {
-  return <div className={styles.spinner}></div>
+interface SpinnerProps {
+  size: string
+}
+
+function Spinner({ size }: SpinnerProps) {
+  const classNames =
+    size === 'mini' ? `${styles.spinner} ${styles.mini}` : styles.spinner
+  return <div className={classNames}></div>
 }
 
 export default Spinner

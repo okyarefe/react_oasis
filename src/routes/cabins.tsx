@@ -4,6 +4,7 @@ import { queryOptions, useSuspenseQuery } from '@tanstack/react-query'
 import { getCabins } from '@/services/apiCabins'
 import Spinner from '@/ui/Spinner/Spinner'
 import CabinTable from '@/features/cabins/CabinTable'
+import CabinsPage from '@/features/cabins/Cabins'
 
 export const cabinsQueryOptions = queryOptions({
   queryKey: ['cabins'],
@@ -13,7 +14,7 @@ export const cabinsQueryOptions = queryOptions({
 export const Route = createFileRoute('/cabins')({
   loader: ({ context: { queryClient } }) =>
     queryClient.ensureQueryData(cabinsQueryOptions),
-  pendingComponent: () => <Spinner />,
+  pendingComponent: () => <Spinner size="" />,
   // create Error Component.
   errorComponent: ({ error, reset }) => {
     return (
@@ -33,8 +34,7 @@ function RouteComponent() {
 
   return (
     <>
-      <h1>Cabins</h1>
-      <CabinTable></CabinTable>
+      <CabinsPage></CabinsPage>
     </>
   )
 }
